@@ -36,3 +36,6 @@ chain = prompt|llm|output_parser
 
 if input_text:
     st.write(chain.invoke({'question':input_text}))
+
+
+#token limit exceeded error in openai 
