@@ -39,3 +39,4 @@ if input_text:
 
 
 #token limit exceeded error in openai 
+#will switch to opensource
