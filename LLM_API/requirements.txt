@@ -1,0 +1,5 @@
+fastapi  # for building our api
+uvicorn  # for runing our fastapi application
+ollama  # interfacing with ollama for using local LLM
+python-dotenv
+requests
