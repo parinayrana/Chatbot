@@ -1,8 +1,11 @@
 from fastapi import FastAPI
 import ollama
+import dotenv
 
 app = FastAPI()
 # initiating the api
+
+
 
 
 
