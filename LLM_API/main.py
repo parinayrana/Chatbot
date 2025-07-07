@@ -1,6 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends, HTTPException, Header
 import ollama
-import dotenv
+from dotenv import load_dotenv
 
 app = FastAPI()
 # initiating the api
