@@ -1,10 +1,21 @@
 from fastapi import FastAPI, Depends, HTTPException, Header
 import ollama
 from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+API_KEYS_CREDITS = {os.getenv("API_KEY"): 10}
 
 app = FastAPI()
 # initiating the api
 
+def verify_api_key(x_api_key:str = Header(None)):
+    credits = API_KEYS_CREDITS.get(x_api_key,0)
+    if credits <=0:
+        raise HTTPException(status_code = 401, detail="Invalid API Key, or no credits")
+
+    return x_api_key
 
 
 
