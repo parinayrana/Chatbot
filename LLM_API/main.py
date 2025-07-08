@@ -23,7 +23,8 @@ def verify_api_key(x_api_key:str = Header(None)):
 
 
 @app.post("/generate")
-def generate(prompt: str):
+def generate(prompt: str, x_api_key:str = Depends(verify_api_key)):
+    API_KEYS_CREDITS[x_api_key] -= 1
     reponse = ollama.chat(model='mistral', messages = [{'role':"user", "content": prompt}])   #the messages dict is the input to the model giving it instructions on what and how to do 
     #  for example messages = [{'role':"system", 'content':"You are a poetic assistant who answers in rhymes."},{'role':"user", "content": prompt}])
     return {"response": reponse['message']['content']}
