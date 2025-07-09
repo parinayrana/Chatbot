@@ -19,9 +19,6 @@ def verify_api_key(x_api_key:str = Header(None)):
     return x_api_key
 
 
-
-
-
 @app.post("/generate")
 def generate(prompt: str, x_api_key:str = Depends(verify_api_key)):
     API_KEYS_CREDITS[x_api_key] -= 1
